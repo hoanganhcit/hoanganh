@@ -257,26 +257,23 @@
                     <h3 class="section-title animate" data-animate="fadeInDown">Contact Me</h3>
                 </div>
                 <div class="col-12 map-bg-img">
-                    <form class="hikma-contact darkinput">
-                        <div class="form-row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control mb-3" name="name" placeholder="*Full Name">
-                            </div>
-                            <div class="col-md-4">
-                                <input type="email" class="form-control mb-3" name="email" placeholder="Email">
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control mb-3" name="subject" placeholder="Subject">
-                            </div>
-                            <div class="col-md-12">
-                                <textarea class="form-control mb-3" name="message" placeholder="write your message"></textarea>
-                            </div>
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control mb-3" id="name" placeholder="*Full Name">
                         </div>
-                        <div class="text-right">
-                            <button type="submit" class="btn btn-outline-secondary">SEND</button>
+                        <div class="col-md-4">
+                            <input type="email" class="form-control mb-3" id="email" placeholder="Email">
                         </div>
-                    </form>
-
+                        <div class="col-md-4">
+                            <input type="text" class="form-control mb-3" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea class="form-control mb-3" id="message" placeholder="write your message"></textarea>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit"  onclick="sendMail();" class="btn btn-outline-secondary">SEND</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -291,6 +288,24 @@
 <script src="assets/js/anime.min.js"></script>
 <!-- app js -->
 <script src="assets/js/app.js"></script>
+<script src = "https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendMail() {
+        var email = $('#email').val();
+        var subject = $('#subject').val();
+        var content = $('#message').val(); 
+        Email.send({
+            SecureToken : "e6580ccf-c45d-442e-b5b2-7044d0c827c1",
+            To : email,
+            From : "hoanganh94cit@gmail.com",
+            Subject : subject,
+            Body : content
+        }).then(
+        message => alert(message)
+        );
+    }
+
+</script>
 
 </body>
 </html>
