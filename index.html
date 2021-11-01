@@ -296,8 +296,8 @@
         var content = $('#message').val(); 
         Email.send({
             SecureToken : "00ce5de4-229b-4883-b70b-72be4be3d5c2",
-            To : email,
-            From : "hoanganh94cit@gmail.com",
+            To : 'hoanganh94cit@gmail.com',
+            From : email,
             Subject : subject,
             Body : content
         }).then(
